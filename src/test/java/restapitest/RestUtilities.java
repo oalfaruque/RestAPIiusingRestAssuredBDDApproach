@@ -24,4 +24,16 @@ public class RestUtilities {
         String generatedEmailID = RandomStringUtils.randomAlphanumeric(6);
         return (generatedEmailID+"@gmail.com");
     }
+    public static String generateEmpName(){
+        String generatedEmpName = RandomStringUtils.randomAlphabetic(6);
+        return generatedEmpName;
+    }
+    public static String generatedEmpAge(){
+        String generatedEmpAge = RandomStringUtils.randomNumeric(2);
+        return generatedEmpAge;
+    }
+    public static String generateEmpSalary(){
+        String generatedEmpSalary = RandomStringUtils.randomNumeric(5);
+        return generatedEmpSalary;
+    }
 }
