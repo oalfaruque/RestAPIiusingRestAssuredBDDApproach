@@ -11,12 +11,12 @@ public class PutRequestDemo {
 
     @BeforeMethod
     public void setUp(){
-        myMap.put("employee_name", RestUtilities.generateEmpName());
-        myMap.put("employee_age", RestUtilities.generatedEmpAge());
-        myMap.put("employee_salary", RestUtilities.generateEmpSalary());
-        int empID = 23;
+        myMap.put("name",RestUtilities.generateEmpName());
+        myMap.put("salary", RestUtilities.generateEmpSalary());
+        myMap.put("age", RestUtilities.generateEmpAge());
+        int empID = 78;
 
-        baseURI= "http://dummy.restapiexample.com/api/v1/employees";
+        baseURI= "http://dummy.restapiexample.com/api/v1";
         basePath = "/update/"+empID;
     }
     

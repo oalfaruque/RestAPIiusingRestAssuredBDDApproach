@@ -25,10 +25,10 @@ public class RestUtilities {
         return (generatedEmailID+"@gmail.com");
     }
     public static String generateEmpName(){
-        String generatedEmpName = RandomStringUtils.randomAlphabetic(6);
-        return generatedEmpName;
+        String generatedEmpName = RandomStringUtils.randomAlphabetic(2);
+        return ("Omar"+generatedEmpName);
     }
-    public static String generatedEmpAge(){
+    public static String generateEmpAge(){
         String generatedEmpAge = RandomStringUtils.randomNumeric(2);
         return generatedEmpAge;
     }

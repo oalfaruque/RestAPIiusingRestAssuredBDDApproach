@@ -4,6 +4,8 @@ import io.restassured.RestAssured;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+
 import java.util.HashMap;
 
 public class PostRequestDemo {
@@ -12,14 +14,12 @@ public class PostRequestDemo {
     @BeforeMethod
     public void requiredData(){
         //credentials are coming from RestUtilities Class
-        myMap.put("FirstName", RestUtilities.generateFirstName());
-        myMap.put("LastName", RestUtilities.generateLastName());
-        myMap.put("UserName", RestUtilities.generateUserName());
-        myMap.put("Password", RestUtilities.generatePassword());
-        myMap.put("EmailID", RestUtilities.generateEmaiId());
+        myMap.put("name",RestUtilities.generateEmpName());
+        myMap.put("salary", RestUtilities.generateEmpSalary());
+        myMap.put("age", RestUtilities.generateEmpAge());
 
-        RestAssured.baseURI = "http://restapi.demoqa.com/customer";
-        RestAssured.basePath = "/register/";
+        RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1";
+        RestAssured.basePath = "/create";
     }
     @Test
     public void firstPostCustomerRequest(){
@@ -31,6 +31,8 @@ public class PostRequestDemo {
 
                 .then()
                     .statusCode(200)
-                    .statusLine("HTTP/1.1 200 OK");
+                    .statusLine("HTTP/1.1 200 OK")
+                    .body("status",equalTo("success"))
+                    .log().all();//To get the result in the console
     }
 }
